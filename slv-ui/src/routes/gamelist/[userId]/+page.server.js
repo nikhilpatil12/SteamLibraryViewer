@@ -14,6 +14,7 @@ export async function load({ params }) {
 	const data = await res.json();
 	console.log(JSON.stringify(data));
 	return {
+		user: params.userId,
 		data: data
 	};
 }

@@ -10,7 +10,7 @@
 	const getGamesWithoutLogin = () => {
 		console.log('REDIR');
 		console.log(userId);
-		window.location.href = `/gamelist/${userId}`;
+		window.location.href = `/gameList/${userId}`;
 	};
 </script>
 

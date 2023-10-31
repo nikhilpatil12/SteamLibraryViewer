@@ -7,22 +7,24 @@
 	$: activeUrl = $page.url.pathname;
 </script>
 
-<Navbar class="fixed">
-	<NavBrand href="/">
-		<!-- <img src="favicon.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
-		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-			Steam Library Viewer
-		</span>
-	</NavBrand>
-	<NavHamburger />
-	<NavUl {activeUrl}>
-		<NavLi href="/">Home</NavLi>
-		<NavLi href="/about">About</NavLi>
-		<NavLi href="/docs/components/navbar">Navbar</NavLi>
-		<NavLi href="/github">Github</NavLi>
-	</NavUl>
-</Navbar>
+<div class="relative">
+	<Navbar class="fixed">
+		<NavBrand href="/">
+			<!-- <img src="favicon.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
+			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+				Steam Library Viewer
+			</span>
+		</NavBrand>
+		<NavHamburger />
+		<NavUl {activeUrl}>
+			<NavLi href="/">Home</NavLi>
+			<NavLi href="/about">About</NavLi>
+			<NavLi href="/docs/components/navbar">Navbar</NavLi>
+			<NavLi href="/github">Github</NavLi>
+		</NavUl>
+	</Navbar>
 
-<div class="min-h-screen flex items-center justify-center">
-	<slot />
+	<div class="min-h-screen flex items-center justify-center pt-32 p-16">
+		<slot />
+	</div>
 </div>
