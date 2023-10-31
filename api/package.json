@@ -1,0 +1,13 @@
+{
+    "name": "steam-library-viewer",
+    "version": "1.0.0",
+    "description": "Steam Library Viewer",
+    "main": "server.js",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "express-session": "^1.17.3",
+        "passport": "",
+        "passport-steam": ""
+    }
+}
