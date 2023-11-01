@@ -82,10 +82,12 @@ app.get("/auth/steam", passport.authenticate("steam"));
 
 app.get(
   "/auth/steam/return",
-  passport.authenticate("steam", { failureRedirect: "http://localhost:5173/" }),
+  passport.authenticate("steam", {
+    failureRedirect: "https://steamapp.nikpatil.com",
+  }),
   (req, res) => {
     // Redirect to the SvelteKit application with user data as a query parameter
-    res.redirect(`http://localhost:5173/profile`);
+    res.redirect(`https://steamapp.nikpatil.com/profile`);
   }
 );
 
