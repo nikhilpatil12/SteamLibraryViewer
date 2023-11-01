@@ -1,3 +1,4 @@
+import { API_KEY } from '$env/static/private';
 export async function load({ params }) {
 	// console.log(params);
 	console.log(params.gameId);
@@ -7,7 +8,9 @@ export async function load({ params }) {
 	const res = await fetch(
 		'http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=' +
 			[gameid] +
-			'&key=9CCBC64E857A8786B7B141037F569F1D&steamid=' +
+			'&key=' +
+			API_KEY +
+			'&steamid=' +
 			steamid,
 		{
 			method: 'GET'

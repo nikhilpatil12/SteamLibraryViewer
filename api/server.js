@@ -5,9 +5,9 @@ const expressSession = require("express-session");
 const path = require("path");
 
 const app = express();
-
-const secretKey = "772bc2c339a863177aec8edab674d03c";
-
+require("dotenv").config();
+const secretKey = process.env.MY_SECRET_KEY;
+const apiKey = process.env.API_KEY;
 // Configure express-session
 app.use(
   expressSession({
@@ -31,7 +31,7 @@ passport.use(
     {
       returnURL: "http://localhost:3000/auth/steam/return",
       realm: "http://localhost:3000/",
-      apiKey: "9CCBC64E857A8786B7B141037F569F1D",
+      apiKey: apiKey,
     },
     (identifier, profile, done) => {
       // Handle user data and session setup here
