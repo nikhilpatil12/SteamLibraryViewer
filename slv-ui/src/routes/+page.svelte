@@ -23,17 +23,19 @@
 			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
-				code = data.code;
-				if (code === 200) {
+				if (data.code === 200) {
 					isUserLoggedIn = true;
 					userDetails = JSON.stringify(data.user);
 				}
 			});
+		console.log('out');
+		console.log(isUserLoggedIn);
+		console.log(userDetails);
 	});
 </script>
 
 <body>
-	{#if isUserLoggedIn}
+	{#if !isUserLoggedIn}
 		<Card class="p-8 rounded-lg shadow-md w-96">
 			<Heading tag="h1" class="mb-4">Steam Library Stats Tool</Heading>
 
