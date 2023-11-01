@@ -24,8 +24,10 @@
 			.then((data) => {
 				console.log(data);
 				code = data.code;
-				isUserLoggedIn = code != 401;
-				userDetails = JSON.stringify(data.user);
+				if (code === 200) {
+					isUserLoggedIn = true;
+					userDetails = JSON.stringify(data.user);
+				}
 			});
 	});
 </script>
