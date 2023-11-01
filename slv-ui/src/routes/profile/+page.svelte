@@ -17,7 +17,7 @@
 			.then((data) => {
 				// console.log(JSON.parse(data.user));
 				if (data.user) {
-					if (data.user.profile != '') {
+					if (data.code != 401) {
 						userData = JSON.parse(data.user.profile);
 					} else {
 						console.error('User data not found in the query parameter');

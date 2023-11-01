@@ -72,9 +72,9 @@ app.get("/", (req, res) => {
 
 app.get("/profile", (req, res) => {
   if (req.isAuthenticated()) {
-    res.json({ message: "Authenticated", user: req.user });
+    res.json({ message: "Authenticated", user: req.user, code: 200 });
   } else {
-    res.json({ message: "Not authenticated" });
+    res.json({ message: "Not authenticated", code: 401 });
   }
 });
 
