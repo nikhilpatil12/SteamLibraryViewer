@@ -25,9 +25,9 @@
 			.then((data) => {
 				console.log(data);
 				responseData = data;
-				code = responseData.data.code;
+				code = responseData.code;
 				isUserLoggedIn = code != 401;
-				userDetails = JSON.stringify(data.data.user);
+				userDetails = JSON.stringify(responseData.user);
 			});
 	});
 </script>
