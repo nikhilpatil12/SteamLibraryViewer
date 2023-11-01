@@ -9,7 +9,7 @@
 	let userData;
 	onMount(() => {
 		// Extract user data from the query parameter
-		fetch('http://localhost:3000/profile', {
+		fetch('https://steamapi.nikpatil.com/profile', {
 			method: 'GET',
 			credentials: 'include'
 		})

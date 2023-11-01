@@ -5,7 +5,7 @@
 	let userId = '';
 	const loginToSteam = () => {
 		// Redirect to the Steam login route on the Express server
-		window.location.href = 'http://localhost:3000/auth/steam';
+		window.location.href = 'https://steamapi.nikpatil.com/auth/steam';
 	};
 	const getGamesWithoutLogin = () => {
 		console.log('REDIR');
