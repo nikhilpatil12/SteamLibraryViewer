@@ -13,7 +13,6 @@
 		window.location.href = `/gameList/${userId}`;
 	};
 	let isUserLoggedIn = false;
-	let responseData;
 	let userDetails = {};
 	let code;
 	onMount(() => {
@@ -24,10 +23,9 @@
 			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
-				responseData = data;
-				code = responseData.code;
+				code = data.code;
 				isUserLoggedIn = code != 401;
-				userDetails = JSON.stringify(responseData.user);
+				userDetails = JSON.stringify(data.user);
 			});
 	});
 </script>
