@@ -1,5 +1,5 @@
 const express = require("express");
-const passport = require("passport");
+var passport = require("passport");
 const SteamStrategy = require("passport-steam").Strategy;
 const expressSession = require("express-session");
 const path = require("path");
