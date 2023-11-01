@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { Button, Card, P, Heading, Input, Label, Helper, Hr } from 'flowbite-svelte';
-	import { setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	let userId = '';
 	const loginToSteam = () => {
 		// Redirect to the Steam login route on the Express server
@@ -12,11 +12,24 @@
 		console.log(userId);
 		window.location.href = `/gameList/${userId}`;
 	};
-
-	export let data;
-	export let code = data.data.code;
-	export let isUserLoggedIn = code == 401;
-	export let userDetails = JSON.stringify(data.data.user);
+	let isUserLoggedIn = false;
+	let responseData;
+	let userDetails = {};
+	let code;
+	onMount(() => {
+		fetch('https://steamapi.nikpatil.com/profile', {
+			method: 'GET',
+			credentials: 'include'
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				responseData = data;
+				code = responseData.data.code;
+				isUserLoggedIn = code != 401;
+				userDetails = JSON.stringify(data.data.user);
+			});
+	});
 </script>
 
 <body>
