@@ -9,6 +9,7 @@
         "express": "^4.18.2",
         "express-session": "^1.17.3",
         "passport": "",
-        "passport-steam": ""
+        "passport-steam": "",
+        "@passport-next/passport-openid":""
     }
 }
