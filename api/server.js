@@ -21,7 +21,7 @@ const cors = require("cors");
 // Enable CORS for your frontend's origin (replace 'http://localhost:5173' with your actual frontend's origin)
 app.use(
   cors({
-    origin: "http://localhost:5173", // Replace with your frontend's origin
+    origin: "https://steamapp.nikpatil.com",
     credentials: true, // Enable passing cookies and credentials
   })
 );
@@ -29,8 +29,10 @@ app.use(
 passport.use(
   new SteamStrategy(
     {
-      returnURL: "http://localhost:3000/auth/steam/return",
-      realm: "http://localhost:3000/",
+      returnURL: "https://steamapi.nikpatil.com/auth/steam/return",
+      // returnURL: "http://localhost:3000/auth/steam/return",
+      realm: "https://steamapi.nikpatil.com/",
+      // realm: "http://localhost:3000/",
       apiKey: apiKey,
     },
     (identifier, profile, done) => {
@@ -51,8 +53,8 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((user, done) => {
   // Deserialize the user based on the SteamID stored in the session
-  console.log(user);
-  console.log("Out of deserialize");
+  // console.log(user);
+  // console.log("Out of deserialize");
   done(null, {
     steamId: user.steamId,
     profile: JSON.stringify(user.userProfile),
@@ -98,5 +100,5 @@ app.get(
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  // console.log(`Server is running on port ${port}`);
 });
