@@ -1,7 +1,9 @@
 <script>
-	import { goto } from '$app/navigation';
-	import {} from 'flowbite-svelte';
-	// import { DotsHorizontalOutline } from 'flowbite-svelte-icons';
+	import { browser, dev, building, version } from '$app/environment';
+	import { slide } from 'svelte/transition';
+	import clipboardCopy from 'clipboard-copy';
+	import { toast } from '@zerodevx/svelte-toast';
+	import { DotsHorizontalOutline } from 'flowbite-svelte-icons';
 	import {
 		Card,
 		Dropdown,
@@ -19,7 +21,24 @@
 	let userId = '';
 	const loginToSteam = () => {
 		// Redirect to the Steam login route on the Express server
-		window.location.href = 'https://steamapi.nikpatil.com/auth/steam';
+		window.location.href = !dev
+			? 'https://steamapi.nikpatil.com/auth/steam'
+			: 'http://localhost:3000/auth/steam';
+	};
+
+	const copyProfileUrl = () => {
+		clipboardCopy(userDetails._json.profileurl)
+			.then(() => {
+				toast.push('Profile link copied to clipboard!', {
+					theme: {
+						'--toastBackground': '#64a30d',
+						'--toastBarBackground': '#fff'
+					}
+				});
+			})
+			.catch((error) => {
+				console.error('Copy to clipboard failed:', error);
+			});
 	};
 	const getGamesWithoutLogin = () => {
 		console.log('REDIR');
@@ -32,15 +51,15 @@
 	 */
 	let userDetails;
 	onMount(() => {
-		fetch('https://steamapi.nikpatil.com/profile', {
+		fetch(!dev ? 'https://steamapi.nikpatil.com/profile' : 'http://localhost:3000/profile', {
 			method: 'GET',
 			credentials: 'include'
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				if (data.code === 200) {
+				if (data.code == 200) {
 					isUserLoggedIn = true;
-					userDetails = JSON.parse(data.user);
+					userDetails = JSON.parse(data.user.profile);
 				}
 			});
 	});
@@ -102,7 +121,7 @@
 					</Dropdown>
 				</div>
 				<div class="flex flex-col items-center pb-4">
-					<Avatar size="lg" src={userDetails.photos[2]} />
+					<Avatar size="lg" src={userDetails.photos[2].value} />
 					<h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
 						{userDetails._json.realname}
 					</h5>
@@ -114,7 +133,9 @@
 					</span>
 					<div class="flex mt-4 space-x-3 lg:mt-6">
 						<Button href={userDetails._json.profileurl}>View on Steam</Button>
-						<Button href="" color="light" class="dark:text-white">Share Profile</Button>
+						<Button on:click={copyProfileUrl} color="light" class="dark:text-white">
+							Share Profile
+						</Button>
 					</div>
 				</div>
 			</Card>

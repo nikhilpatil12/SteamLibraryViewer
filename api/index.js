@@ -8,6 +8,7 @@ const app = express();
 require("dotenv").config();
 const secretKey = process.env.MY_SECRET_KEY;
 const apiKey = process.env.API_KEY;
+const isLocal = process.env.IS_LOCAL;
 // Configure express-session
 app.use(
   expressSession({
@@ -18,21 +19,25 @@ app.use(
 );
 
 const cors = require("cors");
-// Enable CORS for your frontend's origin (replace 'http://localhost:5173' with your actual frontend's origin)
 app.use(
   cors({
-    origin: "https://steamapp.nikpatil.com",
-    credentials: true, // Enable passing cookies and credentials
+    origin:
+      isLocal == 0 ? "https://steamapp.nikpatil.com" : "http://localhost:5173",
+    credentials: true,
   })
 );
 // Set up Steam authentication strategy
 passport.use(
   new SteamStrategy(
     {
-      returnURL: "https://steamapi.nikpatil.com/auth/steam/return",
-      // returnURL: "http://localhost:3000/auth/steam/return",
-      realm: "https://steamapi.nikpatil.com/",
-      // realm: "http://localhost:3000/",
+      returnURL:
+        isLocal == 0
+          ? "https://steamapi.nikpatil.com/auth/steam/return"
+          : "http://localhost:3000/auth/steam/return",
+      realm:
+        isLocal == 0
+          ? "https://steamapi.nikpatil.com/"
+          : "http://localhost:3000/",
       apiKey: apiKey,
     },
     (identifier, profile, done) => {
@@ -83,11 +88,16 @@ app.get("/auth/steam", passport.authenticate("steam"));
 app.get(
   "/auth/steam/return",
   passport.authenticate("steam", {
-    failureRedirect: "https://steamapp.nikpatil.com",
+    failureRedirect:
+      isLocal == 0 ? "https://steamapp.nikpatil.com" : "http://localhost:5173/",
   }),
   (req, res) => {
     // Redirect to the SvelteKit application with user data as a query parameter
-    res.redirect(`https://steamapp.nikpatil.com/profile`);
+    res.redirect(
+      isLocal == 0
+        ? "https://steamapp.nikpatil.com/profile"
+        : "http://localhost:5173/profile"
+    );
   }
 );
 

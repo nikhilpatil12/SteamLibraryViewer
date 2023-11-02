@@ -1,6 +1,7 @@
 <script>
 	import '../app.postcss';
 	import { page } from '$app/stores';
+	import { SvelteToast } from '@zerodevx/svelte-toast';
 
 	import { Alert } from 'flowbite-svelte';
 	import { Navbar, NavBrand, NavUl, NavLi, NavHamburger } from 'flowbite-svelte';
@@ -28,3 +29,17 @@
 		<slot />
 	</div>
 </div>
+<SvelteToast options={{ duration: 2000, reversed: true, intro: { y: 50 } }} />
+
+<style>
+	:root {
+		--toastContainerTop: auto;
+		--toastContainerRight: auto;
+		--toastContainerBottom: 1rem;
+		--toastContainerLeft: calc(50vw - 10rem);
+		--toastBorderRadius: 1rem;
+		--toastBorder: 1px solid rgb(184, 184, 184);
+		--toastWidth: 20rem;
+		--toastPadding: 0.2rem;
+	}
+</style>

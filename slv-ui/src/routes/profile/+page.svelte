@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { redirect } from '@sveltejs/kit';
 	import { goto } from '$app/navigation';
+	import { browser, dev, building, version } from '$app/environment';
 
 	/**
 	 * @type {{ displayName: any; id: any; photos: any, _json:any }}
@@ -9,7 +10,7 @@
 	let userData;
 	onMount(() => {
 		// Extract user data from the query parameter
-		fetch('https://steamapi.nikpatil.com/profile', {
+		fetch(!dev ? 'https://steamapi.nikpatil.com/profile' : 'http://localhost:3000/profile', {
 			method: 'GET',
 			credentials: 'include'
 		})
