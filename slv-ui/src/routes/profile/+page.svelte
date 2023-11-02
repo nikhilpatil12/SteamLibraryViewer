@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 
 	/**
-	 * @type {{ displayName: any; id: any; photos: any }}
+	 * @type {{ displayName: any; id: any; photos: any, _json:any }}
 	 */
 	let userData;
 	onMount(() => {
