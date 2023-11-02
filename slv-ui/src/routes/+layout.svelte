@@ -15,13 +15,13 @@
 				Steam Library Viewer
 			</span>
 		</NavBrand>
-		<NavHamburger />
 		<NavUl {activeUrl}>
 			<NavLi href="/">Home</NavLi>
 			<NavLi href="/about">About</NavLi>
 			<NavLi href="https://github.com/nikhilpatil12">Github</NavLi>
 		</NavUl>
 		<DarkMode />
+		<NavHamburger />
 	</Navbar>
 
 	<div class="min-h-screen flex items-center justify-center pt-32 p-16">
