@@ -40,6 +40,19 @@
 				console.error('Copy to clipboard failed:', error);
 			});
 	};
+	const logoutUser = () => {
+		fetch(!dev ? 'https://steamapi.nikpatil.com/logout' : 'http://localhost:3000/logout', {
+			method: 'POST',
+			credentials: 'include'
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				if (data.status == 200) {
+					isUserLoggedIn = false;
+					userDetails = { displayName: '', id: '', photos: '', _json: '' };
+				}
+			});
+	};
 	const getGamesWithoutLogin = () => {
 		console.log('REDIR');
 		console.log(userId);
@@ -136,6 +149,7 @@
 						<Button on:click={copyProfileUrl} color="light" class="dark:text-white">
 							Share Profile
 						</Button>
+						<Button on:click={logoutUser} color="light" class="dark:text-white">Logout</Button>
 					</div>
 				</div>
 			</Card>

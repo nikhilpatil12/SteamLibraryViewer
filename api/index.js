@@ -100,7 +100,14 @@ app.get(
     );
   }
 );
-
+app.post("/logout", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.json({ result: "User Logged out", status: 200 });
+  });
+});
 // app.get(
 //   "/auth/steam/return",
 //   passport.authenticate("steam", { failureRedirect: "/" }),
