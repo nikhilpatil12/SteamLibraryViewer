@@ -34,10 +34,10 @@
 	});
 </script>
 
-<div>
+<body>
 	<h1>User Profile</h1>
 	{#if userData}
 		<p><strong>Display Name:</strong> {userData.displayName}</p>
 		<p><strong>SteamID:</strong> {userData.id}</p>
 	{/if}
-</div>
+</body>

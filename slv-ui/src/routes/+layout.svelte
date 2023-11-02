@@ -2,33 +2,31 @@
 	import '../app.postcss';
 	import { page } from '$app/stores';
 	import { SvelteToast } from '@zerodevx/svelte-toast';
-
-	import { Alert } from 'flowbite-svelte';
 	import { Navbar, NavBrand, NavUl, NavLi, NavHamburger } from 'flowbite-svelte';
 	$: activeUrl = $page.url.pathname;
+	import { DarkMode } from 'flowbite-svelte';
 </script>
 
-<div class="relative">
+<body class="relative">
 	<Navbar class="fixed">
 		<NavBrand href="/">
-			<!-- <img src="favicon.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" /> -->
+			<img src="/favicon.png" class="mr-3 h-6 sm:h-9" alt="SLV Logo" />
 			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
 				Steam Library Viewer
 			</span>
 		</NavBrand>
-		<NavHamburger />
 		<NavUl {activeUrl}>
 			<NavLi href="/">Home</NavLi>
 			<NavLi href="/about">About</NavLi>
-			<NavLi href="/docs/components/navbar">Navbar</NavLi>
-			<NavLi href="/github">Github</NavLi>
+			<NavLi href="https://github.com/nikhilpatil12">Github</NavLi>
 		</NavUl>
+		<DarkMode />
 	</Navbar>
 
 	<div class="min-h-screen flex items-center justify-center pt-32 p-16">
 		<slot />
 	</div>
-</div>
+</body>
 <SvelteToast options={{ duration: 2000, reversed: true, intro: { y: 50 } }} />
 
 <style>
