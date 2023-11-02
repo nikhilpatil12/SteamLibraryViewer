@@ -15,6 +15,7 @@
 				Steam Library Viewer
 			</span>
 		</NavBrand>
+		<NavHamburger />
 		<NavUl {activeUrl}>
 			<NavLi href="/">Home</NavLi>
 			<NavLi href="/about">About</NavLi>
