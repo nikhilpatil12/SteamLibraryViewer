@@ -38,30 +38,44 @@
 							class="hover:scale-95 duration-300"
 							href={'https://store.steampowered.com/app/' + gameId}>View on Steam</Button
 						>
+						<Button
+							color="blue"
+							shadow
+							class="hover:scale-95 duration-300"
+							href={`/gameList/${steamId}`}
+						>
+							Go to Library
+						</Button>
 					</div>
 				</div>
 			</div>
 			<div class="p-8">
-				<p class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white py-2">
+				<p class="text-3xl font-semibold tracking-tight text-lime-700 dark:text-lime-400 py-2">
 					Game Stats
 				</p>
-				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
-					Total Playtime: {gameStats.playtime_forever} minutes
+				<p class="text tracking-tight text-gray-900 dark:text-white pt-2">Total Playtime:</p>
+				<p class="text-xl tracking-tight text-lime-700 dark:text-lime-500 pb-2">
+					{gameStats.playtime_forever} minutes
 				</p>
-				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
-					Last Played: {new Date(gameStats.rtime_last_played * 1000).toLocaleString()}
+				<p class="text tracking-tight text-gray-900 dark:text-white pt-2">Last Played:</p>
+				<p class="text-xl tracking-tight text-lime-700 dark:text-lime-500 pb-2">
+					{new Date(gameStats.rtime_last_played * 1000).toLocaleString()}
 				</p>
-				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
-					Playtime on Linux: {gameStats.playtime_linux_forever} minutes
+				<p class="text tracking-tight text-gray-900 dark:text-white pt-2">Playtime on Linux:</p>
+				<p class="text-xl tracking-tight text-lime-700 dark:text-lime-500 pb-2">
+					{gameStats.playtime_linux_forever} minutes
 				</p>
-				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
-					Playtime on MacOS: {gameStats.playtime_mac_forever} minutes
+				<p class="text tracking-tight text-gray-900 dark:text-white pt-2">Playtime on MacOS:</p>
+				<p class="text-xl tracking-tight text-lime-700 dark:text-lime-500 pb-2">
+					{gameStats.playtime_mac_forever} minutes
 				</p>
-				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
-					Playtime on Windows: {gameStats.playtime_windows_forever} minutes
+				<p class="text tracking-tight text-gray-900 dark:text-white pt-2">Playtime on Windows:</p>
+				<p class="text-xl tracking-tight text-lime-700 dark:text-lime-500 pb-2">
+					{gameStats.playtime_windows_forever} minutes
 				</p>
-				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
-					Playtime Offline: {gameStats.playtime_disconnected} minutes
+				<p class="text tracking-tight text-gray-900 dark:text-white pt-2">Playtime Offline:</p>
+				<p class="text-xl tracking-tight text-lime-700 dark:text-lime-500 pb-2">
+					{gameStats.playtime_disconnected} minutes
 				</p>
 				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
 					{#if gameStats.has_community_visible_stats}
