@@ -3,33 +3,78 @@
 	export let gameStats = data.data;
 	export let gameStatus = data.status;
 	export let gameId = data.gameid;
+	export let steamId = data.steamid;
 	console.log(gameStats);
 	console.log(gameStatus);
 	console.log(gameId);
 	import { Button, Card, Gallery, P } from 'flowbite-svelte';
+	import { LinkSolid } from 'flowbite-svelte-icons';
+
+	let imageurl = `https://steamcdn-a.akamaihd.net/steam/apps/${gameId}/hero_capsule.jpg`;
+
+	function handleImageError() {
+		console.error('Image failed to load');
+		imageurl = `https://steamcdn-a.akamaihd.net/steam/apps/${gameId}/library_600x900.jpg`;
+	}
 </script>
 
 <body>
 	{#if gameStatus != 404}
-		<Card padding="none">
-			<a href="/">
-				<img
-					class="p-8 rounded-t-lg"
-					src="https://steamcdn-a.akamaihd.net/steam/apps/{gameId}/hero_capsule.jpg"
-					alt="product 1"
-				/>
-			</a>
-			<div class="px-5 pb-5">
-				<a href="/">
-					<h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-						{gameStats.playerstats.gameName}
-					</h5>
-				</a>
-				<div class="flex justify-between items-center">
-					<!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-					<Button href={'https://store.steampowered.com/app/' + gameId}>View on Steam</Button>
+		<div class="dark:bg-gray-800 bg-gray-300 rounded-xl grid grid-cols-1 md:grid-cols-2 w-max">
+			<div class="p-8">
+				<div>
+					<img class="rounded-t-lg" src={imageurl} alt="product 1" on:error={handleImageError} />
+				</div>
+				<div class="py-2">
+					<div>
+						<h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white py-2">
+							{gameStats.name}
+						</h5>
+					</div>
+					<div class="flex justify-between items-center">
+						<!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+						<Button
+							shadow
+							class="hover:scale-95 duration-300"
+							href={'https://store.steampowered.com/app/' + gameId}>View on Steam</Button
+						>
+					</div>
 				</div>
 			</div>
-		</Card>
+			<div class="p-8">
+				<p class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white py-2">
+					Game Stats
+				</p>
+				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
+					Total Playtime: {gameStats.playtime_forever} minutes
+				</p>
+				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
+					Last Played: {new Date(gameStats.rtime_last_played * 1000).toLocaleString()}
+				</p>
+				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
+					Playtime on Linux: {gameStats.playtime_linux_forever} minutes
+				</p>
+				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
+					Playtime on MacOS: {gameStats.playtime_mac_forever} minutes
+				</p>
+				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
+					Playtime on Windows: {gameStats.playtime_windows_forever} minutes
+				</p>
+				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
+					Playtime Offline: {gameStats.playtime_disconnected} minutes
+				</p>
+				<p class="text-xl tracking-tight text-gray-900 dark:text-white py-2">
+					{#if gameStats.has_community_visible_stats}
+						<Button
+							shadow
+							class="hover:scale-95 duration-300"
+							href="http://steamcommunity.com/profiles/{steamId}/stats/{gameId}"
+						>
+							<LinkSolid class="w-3.5 h-3.5 mr-2" />View Community Stats on Steam
+						</Button>
+					{/if}
+				</p>
+			</div>
+		</div>
 	{/if}
 </body>

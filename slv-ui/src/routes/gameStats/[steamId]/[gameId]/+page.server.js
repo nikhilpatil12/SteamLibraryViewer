@@ -6,12 +6,11 @@ export async function load({ params }) {
 	let gameid = params.gameId;
 	let steamid = params.steamId;
 	const res = await fetch(
-		'http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=' +
-			[gameid] +
-			'&key=' +
+		'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=' +
 			API_KEY +
 			'&steamid=' +
-			steamid,
+			steamid +
+			'&format=json&include_appinfo=1&include_played_free_games=1',
 		{
 			method: 'GET'
 		}
@@ -20,15 +19,22 @@ export async function load({ params }) {
 	// href={'https://store.steampowered.com/app/' + d.appid}
 	const data = await res.json();
 	console.log(JSON.stringify(data));
-	if (Object.keys(data).length != 0)
+	if (Object.keys(data).length != 0) {
+		var games = data.response.games;
+		console.log(games);
+		// @ts-ignore
+		var game = games.find((g) => g.appid == gameid);
+		console.log(game);
 		return {
 			gameid: gameid,
-			data: data,
+			steamid: steamid,
+			data: game,
 			status: 200
 		};
-	else
+	} else
 		return {
 			gameid: gameid,
+			steamid: steamid,
 			data: 'No Player Stats',
 			status: 404
 		};

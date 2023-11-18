@@ -8,7 +8,7 @@
 </script>
 
 <body class="relative">
-	<Navbar class="fixed">
+	<Navbar class="fixed border px-5 py-2 rounded-lg bg-gray-300 z-50 rounded-none">
 		<NavBrand href="/">
 			<img src="/favicon.png" class="mr-3 h-6 sm:h-9" alt="SLV Logo" />
 			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
@@ -24,7 +24,9 @@
 		<NavHamburger />
 	</Navbar>
 
-	<div class="min-h-screen flex items-center justify-center pt-32 p-16">
+	<div
+		class="min-h-screen bg-gray-100 dark:bg-gray-500 flex items-center justify-center pt-32 pb-16"
+	>
 		<slot />
 	</div>
 </body>
