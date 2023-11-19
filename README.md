@@ -60,6 +60,15 @@ The API will be accessible at `http://localhost:3000`.
 
 - Node.js
 - npm (Node Package Manager)
+- [Steam API](https://developer.valvesoftware.com/wiki/Steam_Web_API) - Used for fetching data from the Steam platform.
+
+## Built With
+
+[![Angular][express-logo]][express-url]
+[![SvelteKit][sveltekit-logo]][sveltekit-url]
+[![Flowbite Svelte][flowbite-svelte-logo]][flowbite-svelte-logo]
+[![Tailwind CSS][tailwindcss-logo]][tailwindcss-url]
+[![Steam API][steam-logo]][steam-url]
 
 ## Contributing
 
@@ -70,3 +79,16 @@ Feel free to contribute to the project by submitting issues or pull requests. Fo
 This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as per the license terms.
 
 # Happy gaming! 🎮
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[express-logo]: https://img.shields.io/badge/Express%20JS-DD3399?style=for-the-badge&logo=express
+[express-url]: https://expressjs.com/
+[tailwindcss-logo]: https://img.shields.io/badge/Tailwind%20CSS-434343?style=for-the-badge&logo=tailwindcss
+[tailwindcss-url]: https://tailwindcss.com/
+[sveltekit-logo]: https://img.shields.io/badge/SvelteKit-434343?style=for-the-badge&logo=svelte
+[sveltekit-url]: https://svelte.dev/
+[flowbite-svelte-logo]: https://img.shields.io/badge/Flowbite%20Svelte-fc6f03?style=for-the-badge
+[flowbite-svelte-url]: https://flowbite-svelte.com/
+[steam-logo]: https://img.shields.io/badge/steam%20APISvelte-0066FF?style=for-the-badge&logo=steam
+[steam-url]: https://flowbite-svelte.com/
