@@ -26,9 +26,9 @@ Check out the live demo of the Steam Library Viewer at [steamapp.nikpatil.com](h
    ###### IMPORTANT: Change `APP_URL` & `API_URL` to your URLs
 4. After the installation is complete, start the API by running:
 
-```bash
-node index.js
-```
+   ```bash
+   node index.js
+   ```
 
 The API will be accessible at `http://localhost:3000`.
 
