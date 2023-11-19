@@ -38,7 +38,7 @@ The API will be accessible at `http://localhost:3000`.
 
 1. Navigate to the `slv-ui` directory in your terminal.
 2. Run `npm install` to install the required dependencies.
-3. Create a `.env` file in the `api` directory and provide the following details:
+3. Create a `.env` file in the `slv-ui` directory and provide the following details:
    ```env
    API_KEY='YOUR_STEAM_API_KEY'
    ```
