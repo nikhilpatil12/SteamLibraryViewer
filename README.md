@@ -90,5 +90,5 @@ This project is licensed under the MIT License. Feel free to use, modify, and di
 [sveltekit-url]: https://svelte.dev/
 [flowbite-svelte-logo]: https://img.shields.io/badge/Flowbite%20Svelte-fc6f03?style=for-the-badge
 [flowbite-svelte-url]: https://flowbite-svelte.com/
-[steam-logo]: https://img.shields.io/badge/steam%20APISvelte-0066FF?style=for-the-badge&logo=steam
+[steam-logo]: https://img.shields.io/badge/steam%20API-0066FF?style=for-the-badge&logo=steam
 [steam-url]: https://flowbite-svelte.com/
