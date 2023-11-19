@@ -12,7 +12,7 @@ Check out the live demo of the Steam Library Viewer at [steamapp.nikpatil.com](h
 
 #### Express API (api directory)
 
-###### The Express API serves as the backend for fetching and handling data from the Steam API. To run the API, follow these steps:
+##### The Express API serves as the backend for fetching and handling data from the Steam API. To run the API, follow these steps:
 
 1. Navigate to the `api` directory in your terminal.
 2. Run `npm install` to install the necessary dependencies.
@@ -34,7 +34,7 @@ The API will be accessible at `http://localhost:3000`.
 
 #### SvelteKit App (slv-ui directory)
 
-###### The SvelteKit app provides a dynamic and interactive user interface to view your Steam library. To run the app, follow these steps:
+##### The SvelteKit app provides a dynamic and interactive user interface to view your Steam library. To run the app, follow these steps:
 
 1. Navigate to the `slv-ui` directory in your terminal.
 2. Run `npm install` to install the required dependencies.
