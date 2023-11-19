@@ -8,7 +8,8 @@ const app = express();
 require("dotenv").config();
 const secretKey = process.env.MY_SECRET_KEY;
 const apiKey = process.env.API_KEY;
-const isLocal = process.env.IS_LOCAL;
+const apiUrl = process.env.API_URL;
+const appUrl = process.env.APP_URL;
 // Configure express-session
 app.use(
   expressSession({
@@ -21,8 +22,7 @@ app.use(
 const cors = require("cors");
 app.use(
   cors({
-    origin:
-      isLocal == 0 ? "https://steamapp.nikpatil.com" : "http://localhost:5173",
+    origin: appUrl,
     credentials: true,
   })
 );
@@ -30,14 +30,8 @@ app.use(
 passport.use(
   new SteamStrategy(
     {
-      returnURL:
-        isLocal == 0
-          ? "https://steamapi.nikpatil.com/auth/steam/return"
-          : "http://localhost:3000/auth/steam/return",
-      realm:
-        isLocal == 0
-          ? "https://steamapi.nikpatil.com/"
-          : "http://localhost:3000/",
+      returnURL: apiUrl + "/auth/steam/return",
+      realm: apiUrl,
       apiKey: apiKey,
     },
     (identifier, profile, done) => {
@@ -88,16 +82,11 @@ app.get("/auth/steam", passport.authenticate("steam"));
 app.get(
   "/auth/steam/return",
   passport.authenticate("steam", {
-    failureRedirect:
-      isLocal == 0 ? "https://steamapp.nikpatil.com" : "http://localhost:5173/",
+    failureRedirect: appUrl,
   }),
   (req, res) => {
     // Redirect to the SvelteKit application with user data as a query parameter
-    res.redirect(
-      isLocal == 0
-        ? "https://steamapp.nikpatil.com/profile"
-        : "http://localhost:5173/profile"
-    );
+    res.redirect(appUrl);
   }
 );
 app.post("/logout", function (req, res, next) {

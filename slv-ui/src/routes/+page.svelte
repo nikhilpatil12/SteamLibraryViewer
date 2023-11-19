@@ -74,13 +74,13 @@
 		<Hr />
 		<form on:submit={getGamesWithoutLogin} method="GET" class="mb-4">
 			<div class="mb-4">
-				<Label for="userId" class="mb-2">SteamID or Profile URL</Label>
+				<Label for="userId" class="mb-2">SteamID</Label>
 				<Input
 					type="text"
 					bind:value={userId}
 					name="userId"
 					class="w-full px-3 py-2 border rounded-md"
-					placeholder="Enter SteamID or Profile URL"
+					placeholder="Enter SteamID"
 				/>
 			</div>
 			<Button shadow class="primary-200 hover:scale-95 duration-300" type="submit">Get Stats</Button
