@@ -59,7 +59,9 @@
 				</p>
 				<p class="text tracking-tight text-gray-900 dark:text-white pt-2">Last Played:</p>
 				<p class="text-xl tracking-tight text-lime-700 dark:text-lime-500 pb-2">
-					{new Date(gameStats.rtime_last_played * 1000).toLocaleString()}
+					{gameStats.rtime_last_played == 0
+						? 'Never'
+						: new Date(gameStats.rtime_last_played * 1000).toLocaleString()}
 				</p>
 				<p class="text tracking-tight text-gray-900 dark:text-white pt-2">Playtime on Linux:</p>
 				<p class="text-xl tracking-tight text-lime-700 dark:text-lime-500 pb-2">

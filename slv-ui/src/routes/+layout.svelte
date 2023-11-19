@@ -7,6 +7,9 @@
 	import { DarkMode } from 'flowbite-svelte';
 </script>
 
+<svelte:head>
+	<title>Steam Library Viewer</title>
+</svelte:head>
 <body class="relative">
 	<Navbar class="fixed border px-5 py-2 rounded-lg bg-gray-300 z-50 rounded-none">
 		<NavBrand href="/">
@@ -25,7 +28,7 @@
 	</Navbar>
 
 	<div
-		class="min-h-screen bg-gray-100 dark:bg-gray-500 flex items-center justify-center pt-32 pb-16"
+		class="min-h-screen bg-gray-100 dark:bg-gray-500 flex items-center justify-center pt-24 pb-16"
 	>
 		<slot />
 	</div>

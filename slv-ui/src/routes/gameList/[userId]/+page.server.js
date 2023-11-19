@@ -56,7 +56,7 @@ export async function load({ params }) {
 			console.log(error);
 		});
 	return {
-		info: reponseData
+		allData: reponseData
 		// two: new Promise((fulfil) => {
 		// 	setTimeout(() => {
 		// 		fulfil(3);
