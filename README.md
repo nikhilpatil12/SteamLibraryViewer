@@ -56,17 +56,17 @@ The API will be accessible at `http://localhost:3000`.
 2. Enter a Steam ID or Log in with your Steam account to authenticate and access your library.
 3. Browse and explore your Steam library with the intuitive interface.
 
-### Dependencies
+## Dependencies
 
 - Node.js
 - npm (Node Package Manager)
 
-### Contributing
+## Contributing
 
 Feel free to contribute to the project by submitting issues or pull requests. Follow the standard GitHub workflow for contributions.
 
-### License
+## License
 
 This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as per the license terms.
 
-#### Happy gaming! 🎮
+# Happy gaming! 🎮
