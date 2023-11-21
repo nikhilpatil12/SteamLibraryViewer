@@ -1,7 +1,6 @@
 <script>
-	import { Card, Gallery } from 'flowbite-svelte';
 	export let appName = 'Steam Library Viewer';
-	export let appVersion = '1.0.2';
+	export let appVersion = '1.0.3';
 	export let description = 'Explore your Steam game library with ease.';
 	export let author = 'Nikhil Patil';
 </script>

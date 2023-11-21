@@ -4,10 +4,7 @@
 	export let gameStatus = data.status;
 	export let gameId = data.gameid;
 	export let steamId = data.steamid;
-	console.log(gameStats);
-	console.log(gameStatus);
-	console.log(gameId);
-	import { Button, Card, Gallery, P } from 'flowbite-svelte';
+	import { Button } from 'flowbite-svelte';
 	import { LinkSolid } from 'flowbite-svelte-icons';
 
 	let imageurl = `https://steamcdn-a.akamaihd.net/steam/apps/${gameId}/hero_capsule.jpg`;

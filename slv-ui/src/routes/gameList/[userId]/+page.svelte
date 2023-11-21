@@ -1,5 +1,4 @@
 <script>
-	// @ts-nocheck
 	import { Button, Card, Gallery, P, Input, Dropdown, DropdownItem } from 'flowbite-svelte';
 	import {
 		ArrowLeftSolid,
@@ -8,8 +7,16 @@
 		SortVerticalSolid
 	} from 'flowbite-svelte-icons';
 
+	/**
+	 * @type {{
+	 * allData: any
+	 * }}
+	 */
 	export let data;
-	export let gameList = {};
+	/**
+	 * @type {any[]}
+	 */
+	export let gameList;
 	export let userId = data.allData.user;
 
 	export let errorMessage = 'Something Went wrong';
@@ -26,7 +33,9 @@
 	var searchText = '';
 	const searchGames = () => {
 		gameList = oldGameList;
-		gameList = gameList.filter((obj) => obj.name.toLowerCase().includes(searchText.toLowerCase()));
+		gameList = gameList.filter((/** @type {{ name: string; }} */ obj) =>
+			obj.name.toLowerCase().includes(searchText.toLowerCase())
+		);
 	};
 	var activeSorting = 0;
 	const sortByName = () => {

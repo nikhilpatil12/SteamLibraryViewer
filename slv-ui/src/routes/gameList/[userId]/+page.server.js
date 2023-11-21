@@ -4,8 +4,6 @@ import { API_KEY } from '$env/static/private';
  */
 let reponseData;
 export async function load({ params }) {
-	// console.log(params);
-	// console.log(params.userId);
 	const res = await fetch(
 		'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=' +
 			API_KEY +
@@ -28,8 +26,6 @@ export async function load({ params }) {
 			return res.json();
 		})
 		.then((data) => {
-			console.log('data');
-			console.log(data);
 			if (data.response && Object.keys(data.response).length != 0) {
 				reponseData = {
 					user: params.userId,
@@ -37,7 +33,6 @@ export async function load({ params }) {
 					data: data
 				};
 			} else if (data.response && Object.keys(data.response).length == 0) {
-				console.log('ahaijhi');
 				reponseData = {
 					user: params.userId,
 					status: 401,
@@ -54,13 +49,13 @@ export async function load({ params }) {
 		})
 		.catch((error) => {
 			console.log(error);
+			reponseData = {
+				user: params.userId,
+				status: 404,
+				data: { response: { message: 'Invalid Steam ID', games: [] } }
+			};
 		});
 	return {
 		allData: reponseData
-		// two: new Promise((fulfil) => {
-		// 	setTimeout(() => {
-		// 		fulfil(3);
-		// 	}, 6000);
-		// })
 	};
 }

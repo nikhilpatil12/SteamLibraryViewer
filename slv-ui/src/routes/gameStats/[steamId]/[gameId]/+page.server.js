@@ -1,8 +1,5 @@
 import { API_KEY } from '$env/static/private';
 export async function load({ params }) {
-	// console.log(params);
-	console.log(params.gameId);
-	console.log(params.steamId);
 	let gameid = params.gameId;
 	let steamid = params.steamId;
 	const res = await fetch(
@@ -16,14 +13,10 @@ export async function load({ params }) {
 		}
 	);
 
-	// href={'https://store.steampowered.com/app/' + d.appid}
 	const data = await res.json();
-	console.log(JSON.stringify(data));
 	if (Object.keys(data).length != 0) {
 		var games = data.response.games;
-		console.log(games);
-		// @ts-ignore
-		var game = games.find((g) => g.appid == gameid);
+		var game = games.find((/** @type {{ appid: any; }} */ g) => g.appid == gameid);
 		console.log(game);
 		return {
 			gameid: gameid,

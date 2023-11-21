@@ -1,17 +1,6 @@
 <script>
-	import { browser, dev, building, version } from '$app/environment';
-	import {
-		Card,
-		Dropdown,
-		DropdownItem,
-		Avatar,
-		Button,
-		P,
-		Heading,
-		Input,
-		Label,
-		Hr
-	} from 'flowbite-svelte';
+	import { dev } from '$app/environment';
+	import { Card, Button, P, Heading, Input, Label, Hr } from 'flowbite-svelte';
 	import { toast } from '@zerodevx/svelte-toast';
 	import { onMount } from 'svelte';
 	let userId = '';
@@ -31,8 +20,6 @@
 	};
 
 	const getGamesWithoutLogin = () => {
-		console.log('REDIR');
-		console.log(userId);
 		checkValidSteamID();
 		if (isSteamIdValid) window.location.href = `/gameList/${userId}`;
 		else
@@ -65,12 +52,15 @@
 
 <body>
 	<Card class="p-8 rounded-lg shadow-md w-96">
-		<Heading tag="h1" class="mb-4">Steam Library Stats Tool</Heading>
+		<Heading tag="h1" class="mb-4">Steam Library Viewer</Heading>
 
 		<P size="sm" weight="light">
-			Welcome to our Steam Library Stats Tool. Enter a SteamID or URL below to get detailed stats
-			for a Steam user's profile.
+			Welcome to the Steam Library Viewer. Enter a SteamID below to get detailed stats for a Steam
+			user's profile.
 		</P>
+		<div class="text-xs text-red-500">
+			Note: Your Steam library must be public in order to browse it here.
+		</div>
 		<Hr />
 		<form on:submit={getGamesWithoutLogin} method="GET" class="mb-4">
 			<div class="mb-4">

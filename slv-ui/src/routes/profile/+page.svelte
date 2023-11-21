@@ -1,23 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
-	import {
-		Card,
-		Dropdown,
-		DropdownItem,
-		Avatar,
-		Button,
-		P,
-		Heading,
-		Input,
-		Label,
-		Hr
-	} from 'flowbite-svelte';
+	import { Card, Avatar, Button } from 'flowbite-svelte';
 	import clipboardCopy from 'clipboard-copy';
 	import { toast } from '@zerodevx/svelte-toast';
-	import { redirect } from '@sveltejs/kit';
 	import { goto } from '$app/navigation';
-	import { ShareAllSolid, LinkOutline } from 'flowbite-svelte-icons';
-	import { browser, dev, building, version } from '$app/environment';
+	import { dev } from '$app/environment';
 
 	let isUserLoggedIn = false;
 	const copyProfileUrl = () => {

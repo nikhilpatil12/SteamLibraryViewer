@@ -35,11 +35,6 @@ passport.use(
       apiKey: apiKey,
     },
     (identifier, profile, done) => {
-      // Handle user data and session setup here
-      console.log(identifier);
-      console.log(profile);
-      console.log(done);
-
       const user = { steamId: identifier, userProfile: profile };
       return done(null, user);
     }
@@ -51,13 +46,10 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((user, done) => {
-  // Deserialize the user based on the SteamID stored in the session
-  // console.log(user);
-  // console.log("Out of deserialize");
   done(null, {
     steamId: user.steamId,
     profile: JSON.stringify(user.userProfile),
-  }); // We don't need to retrieve the profile here
+  });
 });
 
 app.use(passport.initialize());
@@ -97,18 +89,8 @@ app.post("/logout", function (req, res, next) {
     res.json({ result: "User Logged out", status: 200 });
   });
 });
-// app.get(
-//   "/auth/steam/return",
-//   passport.authenticate("steam", { failureRedirect: "/" }),
-//   (req, res) => {
-//     // Redirect or handle the successful login here
-//     res.redirect("/profile");
-//   }
-// );
 
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-// module.exports = app;
