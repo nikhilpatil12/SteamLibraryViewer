@@ -1,10 +1,10 @@
 <script>
 	import { Button, Card, Gallery, P, Input, Dropdown, DropdownItem } from 'flowbite-svelte';
 	import {
-		ArrowLeftSolid,
+		ArrowLeftOutline,
 		SearchOutline,
-		ChevronDownSolid,
-		SortVerticalSolid
+		ChevronDownOutline,
+		SortOutline
 	} from 'flowbite-svelte-icons';
 
 	/**
@@ -78,7 +78,7 @@
 </script>
 
 {#if statusCode == 200}
-	<body>
+	<section>
 		<div class="flex flex-row">
 			<div class="pb-5 relative grow">
 				<div
@@ -102,13 +102,13 @@
 					class="!p-2"
 					size="xl"
 				>
-					<SortVerticalSolid />
+					<SortOutline />
 				</Button>
 			</div>
 			<div class="pl-2 right-0">
 				<Button>
 					Sort By
-					<ChevronDownSolid class="w-3 h-3 ml-2 text-white dark:text-white" />
+					<ChevronDownOutline class="w-3 h-3 ml-2 text-white dark:text-white" />
 				</Button>
 				<Dropdown>
 					<DropdownItem on:click={sortByName}>Name</DropdownItem>
@@ -117,7 +117,10 @@
 				</Dropdown>
 			</div>
 		</div>
-		<Gallery class="gap-4 grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4">
+		<Gallery
+			class="gap-4 grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4"
+			items={gameList}
+		>
 			{#each gameList as d}
 				<Card class="hover:scale-95 duration-75" href="/gameStats/{userId}/{d.appid}">
 					<P size="lg">{d.name}</P>
@@ -137,9 +140,9 @@
 				</Card>
 			{/each}
 		</Gallery>
-	</body>
+	</section>
 {:else}
-	<body class="bg-gray-100 rounded-md w-full h-full">
+	<section class="bg-gray-100 rounded-md w-full h-full">
 		<div>
 			<Card class="rounded-lg shadow-lg p-8 dark:bg-gray-800">
 				<div class="text-center">
@@ -166,9 +169,9 @@
 					href="/"
 					class="bg-lime-600 mt-6 hover:scale-95 hover:bg-lime-700 font-semibold transition duration-200 ease-in-out"
 				>
-					<ArrowLeftSolid class="m-2 w-3.5 h-3.5 ml-2 text-white" /> Back to Home
+					<ArrowLeftOutline class="m-2 w-3.5 h-3.5 ml-2 text-white" /> Back to Home
 				</Button>
 			</Card>
 		</div>
-	</body>
+	</section>
 {/if}

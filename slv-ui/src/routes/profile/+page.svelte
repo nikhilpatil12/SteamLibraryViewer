@@ -59,7 +59,7 @@
 	});
 </script>
 
-<body>
+<section>
 	{#if isUserLoggedIn}
 		<div>
 			<p class="text-lg dark:text-white">Welcome, {userData.displayName}</p>
@@ -91,4 +91,4 @@
 			</Card>
 		</div>
 	{/if}
-</body>
+</section>

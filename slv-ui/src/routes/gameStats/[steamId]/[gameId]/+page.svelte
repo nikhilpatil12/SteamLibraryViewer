@@ -5,7 +5,7 @@
 	export let gameId = data.gameid;
 	export let steamId = data.steamid;
 	import { Button } from 'flowbite-svelte';
-	import { LinkSolid } from 'flowbite-svelte-icons';
+	import { LinkOutline } from 'flowbite-svelte-icons';
 
 	let imageurl = `https://steamcdn-a.akamaihd.net/steam/apps/${gameId}/hero_capsule.jpg`;
 
@@ -15,7 +15,7 @@
 	}
 </script>
 
-<body>
+<section>
 	{#if gameStatus != 404}
 		<div class="dark:bg-gray-800 bg-gray-300 rounded-xl grid grid-cols-1 md:grid-cols-2 w-max">
 			<div class="p-8">
@@ -83,11 +83,11 @@
 							class="hover:scale-95 duration-300"
 							href="http://steamcommunity.com/profiles/{steamId}/stats/{gameId}"
 						>
-							<LinkSolid class="w-3.5 h-3.5 mr-2" />View Community Stats on Steam
+							<LinkOutline class="w-3.5 h-3.5 mr-2" />View Community Stats on Steam
 						</Button>
 					{/if}
 				</p>
 			</div>
 		</div>
 	{/if}
-</body>
+</section>

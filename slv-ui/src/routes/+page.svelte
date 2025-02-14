@@ -50,7 +50,7 @@
 	});
 </script>
 
-<body>
+<section>
 	<Card class="p-8 rounded-lg shadow-md w-96">
 		<Heading tag="h1" class="mb-4">Steam Library Viewer</Heading>
 
@@ -107,4 +107,4 @@
 			</div>
 		{/if}
 	</Card>
-</body>
+</section>

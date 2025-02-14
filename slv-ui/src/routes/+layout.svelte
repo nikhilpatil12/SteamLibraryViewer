@@ -10,7 +10,7 @@
 <svelte:head>
 	<title>Steam Library Viewer</title>
 </svelte:head>
-<body class="relative">
+<section class="relative">
 	<Navbar class="fixed border px-5 py-2 rounded-lg bg-gray-300 z-50 rounded-none">
 		<NavBrand href="/">
 			<img src="/favicon.png" class="mr-3 h-6 sm:h-9" alt="SLV Logo" />
@@ -32,7 +32,7 @@
 	>
 		<slot />
 	</div>
-</body>
+</section>
 <SvelteToast options={{ duration: 2000, reversed: true, intro: { y: 50 } }} />
 
 <style>
