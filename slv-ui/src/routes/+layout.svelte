@@ -1,4 +1,3 @@
-export const ssr = false;
 <script>
 	import '../app.postcss';
 	import { page } from '$app/stores';
