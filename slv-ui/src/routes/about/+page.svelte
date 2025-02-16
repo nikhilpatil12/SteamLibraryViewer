@@ -5,7 +5,7 @@
 	export let author = 'Nikhil Patil';
 </script>
 
-<body class="bg-gray-100 rounded-md min-w-full min-h-full">
+<section class="bg-gray-100 rounded-md min-w-full min-h-full">
 	<section class="bg-gradient-to-r from-lime-500 to-lime-700 text-white py-16 text-center p-4">
 		<h1 class="text-4xl font-extrabold mb-4">{appName}</h1>
 		<p class="text-lg mb-6">{description}</p>
@@ -35,7 +35,7 @@
 			</div>
 		</div>
 	</section>
-</body>
+</section>
 
 <style>
 	.animated-icon {
