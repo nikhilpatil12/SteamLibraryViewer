@@ -3,6 +3,7 @@ import { API_KEY } from '$env/static/private';
  * @type {{ user: any; status: number; data: any; }}
  */
 let reponseData;
+export const ssr = false;
 export async function load({ params }) {
 	const res = await fetch(
 		'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=' +

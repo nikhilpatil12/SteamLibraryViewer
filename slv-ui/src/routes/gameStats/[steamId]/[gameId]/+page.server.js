@@ -1,4 +1,5 @@
 import { API_KEY } from '$env/static/private';
+export const ssr = false;
 export async function load({ params }) {
 	let gameid = params.gameId;
 	let steamid = params.steamId;
